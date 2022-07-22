@@ -1,51 +1,68 @@
 import { TrendingUpRounded } from '@mui/icons-material'
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import axios from 'axios'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { RenderImage } from '../Components/RenderImages'
+import { PokemonCard } from '../Components/PokemonCard'
 import styles from '../styles/Home.module.css'
 
 
-const Home: NextPage = () => {
-  // const [load, setLoad] = useState(true)
-  // const [name, setName] = useState('')
-  // const [imgUrl, setImgUrl] = useState('')
-  // useEffect(()=>{
-  //   setLoad(true)
-  //   console.log('Carregando...')
-  //   axios.get('https://pokeapi.co/api/v2/pokemon/1')
-  //     .then(res=>{
-  //       setName(res.data.name)
-  //       setImgUrl(res.data.sprites.versions['generation-v']['black-white'].animated['front_default'])
-  //     })
-  //     .catch(err => console.log(err))
-  //     .finally(()=>{setLoad(false)})
-  // }, [])
 
-  // useEffect(()=>{
-  //   console.log(load)
-  // },[load])
+const Home: NextPage = () => {
+
   return (
-    <Box>
-      <Typography>Pokemons</Typography>
+    <Box
+      sx={{
+        backgroundColor: '#424549',
+        height: '100vh',        
+      }}
+    >
+      <Box
+        sx={{
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: 40
+        }}
+      >
+        <Typography>PokeNext</Typography>
+
+      </Box>
       
       <Box>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-              <CardMedia>
-                <Image 
-                  width={80}
-                  height={80}
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif"></Image>
-              </CardMedia>
-              <CardContent>
-                <Typography>Pikachu</Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <PokemonCard/>
+          </Grid>
+        </Grid>
+
+
+
+
       </Box>
       <Box>
         <Button variant="contained">{'<-'}</Button>
