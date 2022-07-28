@@ -1,5 +1,6 @@
 import { TrendingUpRounded } from '@mui/icons-material'
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import { AppBar, Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Toolbar, Typography } from '@mui/material'
+import { maxWidth } from '@mui/system'
 import axios from 'axios'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -11,63 +12,77 @@ import styles from '../styles/Home.module.css'
 
 
 const Home: NextPage = () => {
-
+  const xs = 12
+  const md = 3
   return (
-    <Box
-      sx={{
-        backgroundColor: '#424549',
-        height: '100vh',        
-      }}
-    >
-      <Box
-        sx={{
-          width: '100vw',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: 40
-        }}
-      >
-        <Typography>PokeNext</Typography>
+    <Box>
+      <Box>
+        
+          <Typography variant="h6" sx={{ 
+            flexGrow: 1,
+            textAlign: 'center',
+           }} >POKENEXT</Typography>
 
       </Box>
-      
-      <Box>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
+      <Box
+        sx={{ 
+          flexGrow: 1,
+        }}
+
+        margin={{md: '0% 8%', xs: '0%'}}
+
+      >
+
+        <Grid 
+          container
+          sx={{
+            backgroundColor: 'red',
+          }}
+        >
+          <Grid item xs={xs} md={md}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <PokemonCard></PokemonCard>
+            </Box>
           </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
+          <Grid item xs={xs} md={md}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <PokemonCard></PokemonCard>
+            </Box>
           </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
+          <Grid item xs={xs} md={md}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <PokemonCard></PokemonCard>
+            </Box>
           </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <PokemonCard/>
+          <Grid item xs={xs} md={md}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <PokemonCard></PokemonCard>
+            </Box>
           </Grid>
         </Grid>
 
-
-
-
       </Box>
-      <Box>
-        <Button variant="contained">{'<-'}</Button>
-        <Button variant="contained">{'->'}</Button>
-      </Box>
+
     </Box>
   )
 }
