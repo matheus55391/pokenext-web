@@ -13,7 +13,6 @@ export const PokemonCard = ({}: PokemonCardProps) => {
 
             textAlign: "center",
             margin: 2,
-            width: '200px',
         }}>
             <CardActionArea>
                 <CardMedia

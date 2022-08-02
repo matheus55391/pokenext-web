@@ -15,7 +15,8 @@ import { Main } from './style'
 
 
 const Home: NextPage = () => {
-
+  const xs : number = 6
+  const md : number = 3
   return (
     <>
       <Head>
@@ -41,52 +42,52 @@ const Home: NextPage = () => {
           }}
         >
           <Grid container>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={xs} md={md}>
               <PokemonCard/>
             </Grid>
           </Grid>
