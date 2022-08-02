@@ -9,10 +9,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { PokemonCard } from '../Components/PokemonCard'
 import styles from '../styles/Home.module.css'
-import { Main } from './style'
-
-
-
+import { Main } from '../styles/indexStyle'
 
 const Home: NextPage = () => {
   const xs : number = 6
@@ -38,7 +35,7 @@ const Home: NextPage = () => {
 
         <Box
           sx={{
-            margin: '0px 10%' 
+            margin: {xs: '0px', md:'0px 10%' }
           }}
         >
           <Grid container>
