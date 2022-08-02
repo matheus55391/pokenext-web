@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import { TrendingUpRounded } from '@mui/icons-material'
 import { AppBar, Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Toolbar, Typography } from '@mui/material'
 import { maxWidth } from '@mui/system'
@@ -8,82 +9,97 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { PokemonCard } from '../Components/PokemonCard'
 import styles from '../styles/Home.module.css'
+import { Main } from './style'
+
 
 
 
 const Home: NextPage = () => {
-  const xs = 12
-  const md = 3
+
   return (
-    <Box>
-      <Box>
-        
-          <Typography variant="h6" sx={{ 
-            flexGrow: 1,
-            textAlign: 'center',
-           }} >POKENEXT</Typography>
+    <>
+      <Head>
+        <title>Pokenext - ft: Matheus Felipe Vieira Santiago</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Main>
+        <Box
+          margin={2}
+        >
+          <Typography
+            variant="h4"
 
-      </Box>
-      <Box
-        sx={{ 
-          flexGrow: 1,
-        }}
+            fontWeight="bold"
+          >
+            POKENEXT
+          </Typography>
+        </Box>
 
-        margin={{md: '0% 8%', xs: '0%'}}
-
-      >
-
-        <Grid 
-          container
+        <Box
           sx={{
-            backgroundColor: 'red',
+            margin: '0px 10%' 
           }}
         >
-          <Grid item xs={xs} md={md}>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <PokemonCard></PokemonCard>
-            </Box>
+          <Grid container>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
+            <Grid item xs={3}>
+              <PokemonCard/>
+            </Grid>
           </Grid>
-          <Grid item xs={xs} md={md}>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <PokemonCard></PokemonCard>
-            </Box>
-          </Grid>
-          <Grid item xs={xs} md={md}>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <PokemonCard></PokemonCard>
-            </Box>
-          </Grid>
-          <Grid item xs={xs} md={md}>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <PokemonCard></PokemonCard>
-            </Box>
-          </Grid>
-        </Grid>
+        </Box>
+        <Box
+          height={10}
 
-      </Box>
+        >
+          <a href='https://github.com/matheus55391'>Meu Git</a>
+        </Box>
+      </Main>
+    </>
 
-    </Box>
   )
 }
 
