@@ -1,5 +1,7 @@
-export type Pokemon = {
-    name: string,
-    url: string
+export type IPokemon = {
+    id : string,
+    name: string, 
+    image: string,
+    types: string[],
+    url?: string,
 }
-  

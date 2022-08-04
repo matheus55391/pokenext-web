@@ -1,28 +1,53 @@
 import { Box, Grid, Typography } from '@mui/material'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Url } from 'url'
+import { IPokemon } from '../@Types/Pokemon'
 import { PokemonCard } from '../Components/PokemonCard'
 import { Main } from '../styles/indexStyle'
-import { Pokemon } from '../@Types/Pokemon'
+
+
+
+
 
 type Props = {
-  pokemons: Pokemon[]
+  pokemons: IPokemon[]
 }
 
 export const getStaticProps : GetStaticProps = async () => {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20")
-  const data = await res.json()
-  const pokemons : Pokemon[] = data.results
+  var pokemons: IPokemon[] = []
+  var response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20")
+  var data = await response.json()
+
+  for (const poke of data.results) {
+    var res = await fetch(poke.url)
+    var pokemon = await res.json()
+
+    var typesList : string[] = []
+
+    pokemon.types.map((data : any)=>{
+        typesList.push(data.type.name)
+        
+    })
+
+    var newPokemon : IPokemon = {
+      id: pokemon.id,
+      name: pokemon.name,
+      image: pokemon.sprites.versions['generation-v']['black-white'].animated['front_default'],
+      types: typesList
+    }
+
+    pokemons.push(newPokemon)
+  }
+
   return {
     props: {
       pokemons
     }
   }
+
 }
 
 const Home: NextPage<Props> = ({ pokemons } : Props) => {
-
   const xs : number = 6
   const md : number = 3
   return (
@@ -56,10 +81,10 @@ const Home: NextPage<Props> = ({ pokemons } : Props) => {
         >
           <Grid container>
             {
-              pokemons.map((pokemon : Pokemon, index : number) => {
+              pokemons.map((pokemon : IPokemon, index : number) => {
                 return(
                   <Grid key={index} item xs={xs} md={md}>
-                    <PokemonCard name={pokemon.name} url={pokemon.url} />
+                    <PokemonCard id={pokemon.id} name={pokemon.name} url={pokemon.url} image={pokemon.image} types={pokemon.types} />
                   </Grid>
                 )
               })

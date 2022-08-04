@@ -5,51 +5,20 @@ import { Box } from "@mui/system"
 import Image from "next/image"
 import { useEffect, useState } from "react";
 import { text } from "stream/consumers";
-import { Pokemon } from "../@Types/Pokemon";
+import { IPokemon } from "../@Types/Pokemon";
 import { PokemonTypeColorGenerator } from "../utils/pokemonTypeColorGenerator";
 
 
-interface PokemonCardProps {
-    name?: string;
-    url: string;
-}
 
-interface IPokemon {
-    id? : string,
-    name?: string, 
-    image?: string,
-    types?: string[],
-}
+export const PokemonCard = ( {
 
-export const PokemonCard = ({ name, url }: PokemonCardProps) => {
-    
-    const [pokemon, setPokemon] = useState<IPokemon>({})
-    const getPokemon = async () =>{
-        const response = await fetch(url)
-        const data = await response.json()
+    id,
+    name, 
+    image,
+    types,
+    url,
 
-        var typesList : string[] = []
-        data.types.map((data : any)=>{
-            console.log(data.type.name)
-            typesList.push(data.type.name)
-            
-        })
-        const newPokemon : IPokemon = {
-            id: data.id,
-            name: data.name,
-            image: data.sprites.versions['generation-v']['black-white'].animated['front_default'],
-            types: typesList
-        }
-       
-        
-        setPokemon(newPokemon)
-    }
-
-    useEffect(()=>{
-        getPokemon()
-    }, [])
-
-
+} : IPokemon) => {  
 
     return (
         <Card               
@@ -65,7 +34,7 @@ export const PokemonCard = ({ name, url }: PokemonCardProps) => {
                         paddingRight: '10px'
                     }}
                 >
-                    <Typography>#{pokemon.id}</Typography>
+                    <Typography>#{id}</Typography>
                 </Box>
                 <CardMedia
                     sx={{
@@ -78,7 +47,7 @@ export const PokemonCard = ({ name, url }: PokemonCardProps) => {
                     <Image 
                         width={80}
                         height={80}
-                        src={ pokemon.image || "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif"}
+                        src={ image || "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif"}
                     />
                 </CardMedia>
                 <CardContent>
@@ -86,7 +55,7 @@ export const PokemonCard = ({ name, url }: PokemonCardProps) => {
                         fontSize: 22,
                         fontWeight: 'bold'
                         
-                    }}>{ pokemon.name || "Pikachu"}</Typography>
+                    }}>{ name || "Pikachu"}</Typography>
 
                     <Box
                         sx={{
@@ -97,7 +66,7 @@ export const PokemonCard = ({ name, url }: PokemonCardProps) => {
                         }}
                     >
                         {
-                            pokemon.types?.map((type, index)=>{
+                            types?.map((type, index)=>{
                                 return(
                                     <Typography 
                                         key={index}
