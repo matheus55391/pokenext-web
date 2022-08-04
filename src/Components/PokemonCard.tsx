@@ -35,7 +35,7 @@ export const PokemonCard = ( {
                         paddingRight: '10px'
                     }}
                 >
-                    <Typography>#{id}</Typography>
+                    <Typography variant="subtitle1">#{id}</Typography>
                 </Box>
                 <CardMedia
                     sx={{
@@ -62,7 +62,7 @@ export const PokemonCard = ( {
                         sx={{
                             display: 'flex',
                             flexDirection: 'row',
-                            padding: "0px 20px",
+                            padding: "8px 20px",
 
                         }}
                     >
@@ -74,7 +74,6 @@ export const PokemonCard = ( {
                                         margin={"auto"}
                                         width={'100%'}
                                         maxWidth={'90px'}
-                                        p={'2px 10px'}
                                         color={"#fff"}
                                         fontWeight="bold"
                                         bgcolor={PokemonTypeColorGenerator(type)}
