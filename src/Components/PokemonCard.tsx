@@ -21,12 +21,13 @@ export const PokemonCard = ( {
 } : IPokemon) => {  
 
     return (
-        <Card               
+        <Card                
             sx={{ 
                 textAlign: "center",
                 margin: 2,
-            }}>
-            <CardActionArea>
+            }}
+            >
+            <Box>
                 <Box
                     sx={{
                         width: '100%' ,
@@ -61,7 +62,7 @@ export const PokemonCard = ( {
                         sx={{
                             display: 'flex',
                             flexDirection: 'row',
-                            padding: "0px 20px"
+                            padding: "0px 20px",
 
                         }}
                     >
@@ -72,7 +73,8 @@ export const PokemonCard = ( {
                                         key={index}
                                         margin={"auto"}
                                         width={'100%'}
-                                        maxWidth={'120px'}
+                                        maxWidth={'90px'}
+                                        p={'2px 10px'}
                                         color={"#fff"}
                                         fontWeight="bold"
                                         bgcolor={PokemonTypeColorGenerator(type)}
@@ -89,7 +91,7 @@ export const PokemonCard = ( {
 
 
                 </CardContent>
-            </CardActionArea>
+            </Box>
         </Card>
     )
 }
