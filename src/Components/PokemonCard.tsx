@@ -88,20 +88,35 @@ export const PokemonCard = ({ name, url }: PokemonCardProps) => {
                         
                     }}>{ pokemon.name || "Pikachu"}</Typography>
 
-                    {
-                        pokemon.types?.map((type, index)=>{
-                            return(
-                                <Typography 
-                                    key={index}
-                                    margin={"auto"}
-                                    width={'100px'}
-                                    bgcolor={PokemonTypeColorGenerator(type)}
-                                >
-                                    {capitalize(type)}
-                                </Typography>
-                            )
-                        })
-                    }
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            padding: "0px 20px"
+
+                        }}
+                    >
+                        {
+                            pokemon.types?.map((type, index)=>{
+                                return(
+                                    <Typography 
+                                        key={index}
+                                        margin={"auto"}
+                                        width={'100%'}
+                                        maxWidth={'120px'}
+                                        color={"#fff"}
+                                        fontWeight="bold"
+                                        bgcolor={PokemonTypeColorGenerator(type)}
+                                    >
+                                        {capitalize(type)}
+                                    </Typography>
+                                )
+                            })
+                        }
+                    </Box>
+
+
+
 
 
                 </CardContent>
