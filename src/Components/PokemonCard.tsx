@@ -25,6 +25,7 @@ export const PokemonCard = ( {
             sx={{ 
                 textAlign: "center",
                 margin: 2,
+                maxWidth: '350px'
             }}
             >
             <Box>

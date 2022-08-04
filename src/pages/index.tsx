@@ -76,9 +76,19 @@ const Home: NextPage<Props> = ({ pokemons } : Props) => {
         </Box>
 
         <Box
-          margin={{xs: '0px', md:'0px 10%'}}
+          margin={{xs: '0px', md:'0px 4%', lg:'0px 8%', xl: '0px 20%'}}  
 
+          // sx={{
+          //   backgroundColor: {
+          //     xs: 'red', 
+          //     sm:'yellow', 
+          //     md: 'green', 
+          //     lg:'gray', 
+          //     xl: '#f9f',
+          //   }
+          // }}
         >
+          
           <Grid container>
             {
               pokemons.map((pokemon : IPokemon, index : number) => {
