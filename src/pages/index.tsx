@@ -1,17 +1,28 @@
-import styled from '@emotion/styled'
-import { TrendingUpRounded } from '@mui/icons-material'
-import { AppBar, Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Toolbar, Typography } from '@mui/material'
-import { maxWidth } from '@mui/system'
-import axios from 'axios'
-import type { NextPage } from 'next'
+import { Box, Grid, Typography } from '@mui/material'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { Url } from 'url'
 import { PokemonCard } from '../Components/PokemonCard'
-import styles from '../styles/Home.module.css'
 import { Main } from '../styles/indexStyle'
+import { Pokemon } from '../@Types/Pokemon'
 
-const Home: NextPage = () => {
+type Props = {
+  pokemons: Pokemon[]
+}
+
+export const getStaticProps : GetStaticProps = async () => {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20")
+  const data = await res.json()
+  const pokemons : Pokemon[] = data.results
+  return {
+    props: {
+      pokemons
+    }
+  }
+}
+
+const Home: NextPage<Props> = ({ pokemons } : Props) => {
+
   const xs : number = 6
   const md : number = 3
   return (
@@ -20,7 +31,13 @@ const Home: NextPage = () => {
         <title>Pokenext - ft: Matheus Felipe Vieira Santiago</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Main>
+      <Main
+        sx={{
+          backgroundColor: "#f3f3f3" 
+        }}
+        overflow="auto"
+
+      >
         <Box
           margin={2}
         >
@@ -34,59 +51,19 @@ const Home: NextPage = () => {
         </Box>
 
         <Box
-          sx={{
-            margin: {xs: '0px', md:'0px 10%' }
-          }}
+          margin={{xs: '0px', md:'0px 10%'}}
+
         >
           <Grid container>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
-            <Grid item xs={xs} md={md}>
-              <PokemonCard/>
-            </Grid>
+            {
+              pokemons.map((pokemon : Pokemon, index : number) => {
+                return(
+                  <Grid key={index} item xs={xs} md={md}>
+                    <PokemonCard name={pokemon.name} url={pokemon.url} />
+                  </Grid>
+                )
+              })
+            }
           </Grid>
         </Box>
         <Box
