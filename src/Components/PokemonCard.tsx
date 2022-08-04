@@ -63,7 +63,7 @@ export const PokemonCard = ( {
                             display: 'flex',
                             flexDirection: 'row',
                             padding: "8px 20px",
-
+                            justifyContent: 'center',
                         }}
                     >
                         {
