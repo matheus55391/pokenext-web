@@ -1,11 +1,11 @@
-import { css, Global } from '@emotion/react'
-import type { AppProps } from 'next/app'
+import { css, Global } from '@emotion/react';
+import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Global
-        styles={css`
+	return (
+		<>
+			<Global
+				styles={css`
         html,
         body {
           padding: 0;
@@ -23,11 +23,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           box-sizing: border-box;
         }
         `}
-      />
-      <Component {...pageProps} />
+			/>
+			<Component {...pageProps} />
 
-    </>
-    )
+		</>
+	);
 }
 
-export default MyApp
+export default MyApp;
