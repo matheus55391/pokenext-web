@@ -44,7 +44,7 @@ const Home: NextPage<Props> = ({ pokemons } : Props) => {
 				<title>Pokenext - ft: Matheus Felipe Vieira Santiago</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<Main bgcolor={'#f3f3f3'}>
+			<Main bgcolor={'#f3f3f3'} >
 				<Box margin={2} >
 					<Typography variant="h4" fontWeight="bold"> POKENEXT </Typography>
 				</Box>

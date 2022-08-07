@@ -1,6 +1,7 @@
 import { capitalize, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -67,40 +68,53 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 	}
 
 	return(
-		<Box
-			display={'flex'}
-			justifyContent={'center'}
-			alignItems={'center'}
-			height={'75vh'}
-		>
+		<Box  height="100vh">
+			<Head>
+				<title>{pokemon.name} - Pokenext</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+			
 			<Box
-				height={200}
-				width={200}
-				textAlign="center"
+				display={'flex'}
+				justifyContent={'center'}
+				alignItems={'center'}
+				height={'75vh'}
+				
 			>
-				<Image src={pokemon.image || ''}  height={200} width={200}  />
-				<Typography fontWeight={'bold'}>{pokemon.name}</Typography>
-				{
-					pokemon.types?.map((type, index)=>{
-						return(
-							<Typography 
-								key={index}
-								margin={'auto'}
-								width={'100%'}
-								maxWidth={'90px'}
-								color={'#fff'}
-								fontWeight="bold"
-								bgcolor={PokemonTypeColorGenerator(type)}
-							>
-								{capitalize(type)}
-							</Typography>
-						);
-					})
-				}
+
+				<Box
+					height={200}
+					width={200}
+					textAlign="center"
+				>
+					<Image src={pokemon.image || ''}  height={200} width={200}  />
+
+					<Typography fontWeight={'bold'}>{pokemon.name}</Typography>
+
+					<Box display={'flex'} flexDirection="row" pt={2}>
+						{
+							pokemon.types?.map((type, index)=>{
+								return(
+									<Typography 
+										key={index}
+										margin={'auto'}
+										width={'100%'}
+										maxWidth={'90px'}
+										color={'#fff'}
+										fontWeight="bold"
+										bgcolor={PokemonTypeColorGenerator(type)}
+									>
+										{capitalize(type)}
+									</Typography>
+								);
+							})
+						}
+					</Box>
+
+
+				</Box>
 
 			</Box>
-
-
 		</Box>
 	);
 

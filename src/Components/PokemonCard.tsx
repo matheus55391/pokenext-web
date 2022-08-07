@@ -14,7 +14,7 @@ export const PokemonCard = ({id,name,image,types,} : IPokemon) => {
 			<Card                           
 				sx={{ 
 					textAlign: 'center',
-					margin: 2,
+					margin: 1,
 					maxWidth: '350px'
 				}}
 			>
