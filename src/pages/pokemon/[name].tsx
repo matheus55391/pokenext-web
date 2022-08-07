@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { capitalize, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Context } from 'vm';
 import { IPokemon } from '../../@Types/Pokemon';
 import { pokemonFilter } from '../../utils/pokemonFilter';
+import { PokemonTypeColorGenerator } from '../../utils/pokemonTypeColorGenerator';
 
 type Props = {
 
@@ -66,19 +67,40 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 	}
 
 	return(
-		<Box 
-			height={'100vh'}
+		<Box
+			display={'flex'}
+			justifyContent={'center'}
+			alignItems={'center'}
+			height={'75vh'}
 		>
-			<Box 
-				display={'flex'} 
-				flexDirection="column" 
-				height={380} 
-				width={'100px'} 
+			<Box
+				height={200}
+				width={200}
+				textAlign="center"
 			>
-				<Image src={pokemon.image || ''}  height={'100%'} width={'100%'}  />
-				<Typography>{pokemon.name}</Typography>		
+				<Image src={pokemon.image || ''}  height={200} width={200}  />
+				<Typography fontWeight={'bold'}>{pokemon.name}</Typography>
+				{
+					pokemon.types?.map((type, index)=>{
+						return(
+							<Typography 
+								key={index}
+								margin={'auto'}
+								width={'100%'}
+								maxWidth={'90px'}
+								color={'#fff'}
+								fontWeight="bold"
+								bgcolor={PokemonTypeColorGenerator(type)}
+							>
+								{capitalize(type)}
+							</Typography>
+						);
+					})
+				}
 
 			</Box>
+
+
 		</Box>
 	);
 
