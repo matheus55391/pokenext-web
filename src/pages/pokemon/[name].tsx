@@ -9,7 +9,7 @@ import { Context } from 'vm';
 import { IPokemon } from '../../@Types/Pokemon';
 import { pokemonFilter } from '../../utils/pokemonFilter';
 import { PokemonTypeColorGenerator } from '../../utils/pokemonTypeColorGenerator';
-
+import { motion } from 'framer-motion';
 type Props = {
 
 	pokemon?: IPokemon,
@@ -87,7 +87,15 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 					width={200}
 					textAlign="center"
 				>
-					<Image src={pokemon.image || ''}  height={200} width={200}  />
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{  duration: 0.5 }}
+					>
+						<Image src={pokemon.image || ''}  height={200} width={200}  />
+
+					</motion.div>
+
 
 					<Typography fontWeight={'bold'}>{pokemon.name}</Typography>
 
