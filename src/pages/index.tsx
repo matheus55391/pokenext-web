@@ -1,6 +1,8 @@
 import { Box, Grid, Typography } from '@mui/material';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { IPokemon } from '../@Types/Pokemon';
 import { PokemonCard } from '../Components/PokemonCard';
 import { Main } from '../styles/indexStyle';
@@ -36,16 +38,41 @@ export const getStaticProps : GetStaticProps = async () => {
 
 };
 
-const Home: NextPage<Props> = ({ pokemons } : Props) => {
+const Home: NextPage<Props> = (props : Props) => {
+	const [pokemons, setPokemons] = useState<IPokemon[]>(props.pokemons);
+	const {ref, inView } =  useInView();
+	const [offset, setOffset ] = useState(20);
+	const [ loading, setLoading ] = useState(true);
 
+	const updatePokemonList = async () => {
+		setLoading(true);
+		const pk: IPokemon[] = [];
+		const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`);
+		const data = await response.json();
+		for (const poke of data.results) {
+	
+			const newPokemon : IPokemon = await pokemonFilter(poke.url);
+			pk.push(newPokemon);
+
+		}
+		setPokemons([...pokemons, ...pk]);
+		setOffset( offset + 20);
+		setLoading(false);
+	};
+	useEffect(()=>{
+		if(inView){
+
+			updatePokemonList();
+		}
+	},[inView]);
 	return (
 		<Box>
 			<Head>
 				<title>Pokenext - ft: Matheus Felipe Vieira Santiago</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<Main bgcolor={'#f3f3f3'} >
-				<Box margin={2} >
+			<Main bgcolor={'#f3f3f3'}  >
+				<Box margin={2}  >
 					<Typography variant="h4" fontWeight="bold"> POKENEXT </Typography>
 				</Box>
 
@@ -61,11 +88,9 @@ const Home: NextPage<Props> = ({ pokemons } : Props) => {
 							})
 						}
 					</Grid>
+					<Box ref={ref}>{loading? 'carregando pokedex...' : 'Carregada!'}</Box>
 				</Box>
-				<Box
-					height={10}
-
-				>
+				<Box height={10}>
 					<a href='https://github.com/matheus55391'>Meu Git</a>
 				</Box>
 			</Main>
