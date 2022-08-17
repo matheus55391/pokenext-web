@@ -14,7 +14,7 @@ export const PokemonTypeColorGenerator = (type: string) : string =>{
 		return '#9bcc50';
 	case 'poison':
 		return '#A040A0';
-	case 'eletric':
+	case 'electric': 
 		return '#F8D030';
 	case 'ground':
 		return '#E0C068';
