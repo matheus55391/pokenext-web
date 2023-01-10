@@ -1,9 +1,9 @@
 import { IPokemon } from '../@Types/Pokemon';
+import { getPokemon } from '../services/pokeapi';
 
-export const pokemonFilter = async (url: string) : Promise<IPokemon> =>	{
+export const pokemonFilter = async (name: string) : Promise<IPokemon> =>	{
 
-	const response = await fetch(url);
-	const pokemonData = await response.json();
+	const pokemonData = await getPokemon(name);
 
 	const typesList : string[] = [];
 

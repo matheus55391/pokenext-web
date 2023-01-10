@@ -1,4 +1,4 @@
-import { capitalize, Typography } from '@mui/material';
+import { Button, capitalize, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
@@ -10,6 +10,8 @@ import { IPokemon } from '../../@Types/Pokemon';
 import { pokemonFilter } from '../../utils/pokemonFilter';
 import { PokemonTypeColorGenerator } from '../../utils/pokemonTypeColorGenerator';
 import { motion } from 'framer-motion';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 type Props = {
 
 	pokemon?: IPokemon,
@@ -25,11 +27,11 @@ export const getStaticPaths : GetStaticPaths<{name: string}> = async () => {
 
 export const getStaticProps : GetStaticProps = async (context : Context) => {
 	const pkName : string =  context.params.name;
-	console.log(pkName);
+	console.log('🚀 ~ file: [name].tsx:29 ~ constgetStaticProps:GetStaticProps= ~ pkName', pkName);
 	
 	try{
 
-		const pokemon = await pokemonFilter('https://pokeapi.co/api/v2/pokemon/' + pkName);
+		const pokemon = await pokemonFilter(pkName);
 		return {
 			props: { 
 				pokemon: pokemon ,			
@@ -54,8 +56,6 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 		if(pokemon){
 			if(pokemon.name === 'error') router.push('/404');  
 		}
-		console.log(pokemon);
-		
 	},[pokemon]);
 	
 	if(!pokemon){
@@ -67,6 +67,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 		);
 	}
 
+	
 	return(
 		<Box  height="100vh">
 			<Head>
@@ -74,14 +75,14 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			
+			<Button startIcon={<ArrowBackIcon/>} onClick={router.back}/>
+
 			<Box
 				display={'flex'}
 				justifyContent={'center'}
 				alignItems={'center'}
-				height={'75vh'}
-				
+				height={'75vh'}				
 			>
-
 				<Box
 					height={200}
 					width={200}
@@ -95,10 +96,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 						<Image src={pokemon.image || ''}  height={200} width={200}  />
 
 					</motion.div>
-
-
 					<Typography fontWeight={'bold'}>{pokemon.name}</Typography>
-
 					<Box display={'flex'} flexDirection="row" pt={2}>
 						{
 							pokemon.types?.map((type, index)=>{
@@ -118,10 +116,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 							})
 						}
 					</Box>
-
-
 				</Box>
-
 			</Box>
 		</Box>
 	);

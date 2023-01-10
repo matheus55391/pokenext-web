@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { IPokemon } from '../@Types/Pokemon';
 import { PokemonCard } from '../Components/PokemonCard';
+import { getPokemons } from '../services/pokeapi';
 import { Main } from '../styles/indexStyle';
 import { pokemonFilter } from '../utils/pokemonFilter';
 
@@ -18,12 +19,11 @@ type Props = {
 export const getStaticProps : GetStaticProps = async () => {
 	const pokemons: IPokemon[] = [];
 	try{
-		const response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
-		const data = await response.json();
+		const response = await getPokemons();
 	
-		for (const poke of data.results) {
-	
-			const newPokemon : IPokemon = await pokemonFilter(poke.url);
+		for (const poke of response.results) {
+			
+			const newPokemon : IPokemon = await pokemonFilter(poke.name);
 			pokemons.push(newPokemon);
 		}
 	} catch(e){
@@ -47,9 +47,8 @@ const Home: NextPage<Props> = (props : Props) => {
 	const updatePokemonList = async () => {
 		setLoading(true);
 		const pk: IPokemon[] = [];
-		const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`);
-		const data = await response.json();
-		for (const poke of data.results) {
+		const response = await getPokemons(offset);
+		for (const poke of response.results) {
 	
 			const newPokemon : IPokemon = await pokemonFilter(poke.url);
 			pk.push(newPokemon);
