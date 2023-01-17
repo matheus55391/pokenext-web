@@ -93,7 +93,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }: Props) => {
 						animate={{ opacity: 1 }}
 						transition={{  duration: 0.5 }}
 					>
-						<Image src={pokemon.image || ''}  height={200} width={200}  />
+						<Image alt="" src={pokemon.image || ''}  height={200} width={200}  />
 
 					</motion.div>
 					<Typography fontWeight={'bold'}>{pokemon.name}</Typography>

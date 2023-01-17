@@ -36,10 +36,11 @@ export const PokemonCard = ({id,name,image,types,} : IPokemon) => {
 							margin: '20px 0px'
 						}}
 					>
-						<Image 
+						<Image
+							src={ image || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif'}
+							alt=""
 							width={80}
 							height={80}
-							src={ image || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif'}
 						/>
 					</CardMedia>
 					<CardContent>
