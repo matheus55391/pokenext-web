@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { IGetPokemonByNameResponse } from '@/interfaces/IGetPokemonByNameDTOs';

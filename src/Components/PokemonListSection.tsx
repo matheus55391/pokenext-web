@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { IGetPokemonsResults } from '@/interfaces/IGetPokemonsDTOs';
 import PokemonCard from './PokemonCard';
