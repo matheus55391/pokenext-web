@@ -21,7 +21,7 @@ const Header: React.FC = () => {
             className="text-white flex flex-row space-x-2 bg-slate-800 p-2 px-4 rounded-lg items-center"
           >
             <FaGithub size={20} />
-            <span className="text-white font-medium">Project</span>
+            <span className="text-white font-medium hidden md:flex">Project</span>
           </a>
           <button className="hidden">
             <FaBars size={24} />

@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { IGetPokemonByNameResponse } from '@/interfaces/IGetPokemonByNameDTOs';
 import { pokeapiService } from '@/services/PokeapiService';
 import { PokemonTypeColorGenerator } from '@/utils/pokemonTypeColorGenerator';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 
 interface PokemonCardProps {
   name: string;
@@ -37,7 +37,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name }) => {
         {pokemon?.types.map((type, index) => (
           <div
             key={index}
-            className="px-2 py-1 rounded text-white w-20 text-center font-medium"
+            className="px-2 py-1 rounded text-white w-24 text-center font-medium"
             style={{ backgroundColor: PokemonTypeColorGenerator(type) }}
           >
             {type.toUpperCase()}
