@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -39,7 +40,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name }) => {
             className="px-2 py-1 rounded text-white w-20 text-center font-medium"
             style={{ backgroundColor: PokemonTypeColorGenerator(type) }}
           >
-            {type}
+            {type.toUpperCase()}
           </div>
         ))}
       </div>
