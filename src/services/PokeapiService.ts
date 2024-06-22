@@ -11,7 +11,12 @@ import { IPokemon } from "@/interfaces/IPokemon";
 import { PokemonDetail } from "@/interfaces/IPokemonDetail";
 import axios from "axios";
 
-class PokeapiService {
+export interface IPokeapiService {
+  getPokemonByName(request: IGetPokemonByNameRequest): Promise<IGetPokemonByNameResponse>;
+  getPokemons(request?: IGetPokemonsRequest): Promise<IGetPokemonsResults[]>;
+}
+
+class PokeapiService implements IPokeapiService {
   private readonly api = axios.create({
     baseURL: "https://pokeapi.co/api/v2",
   });
