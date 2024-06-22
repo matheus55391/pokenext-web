@@ -7,7 +7,7 @@
 <h3 align="center">POKENEXT</h3>
 
   <p align="center">
-    Bem-vindo à POKENEXT, sua Pokédex online para explorar e descobrir informações fascinantes sobre Pokémon de todas as regiões e gerações. Aqui, você pode mergulhar na vasta diversidade de criaturas incríveis, aprender sobre suas habilidades, tipos, evoluções e muito mais.
+    Bem-vindo à POKENEXT, sua Pokédex online para explorar e descobrir Pokémons de todas as regiões e gerações.
       <br /><br />
       Explore nossa Pokédex para encontrar seus Pokémon favoritos! Clique no link abaixo para começar:
     <br />
