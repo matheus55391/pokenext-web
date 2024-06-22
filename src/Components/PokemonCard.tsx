@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { IGetPokemonByNameResponse } from '@/interfaces/IGetPokemonByNameDTOs';
-import { pokeapiService } from '@/Services/PokeapiService';
+import { pokeapiService } from '@/services/PokeapiService';
 import { PokemonTypeColorGenerator } from '@/utils/pokemonTypeColorGenerator';
 
 interface PokemonCardProps {

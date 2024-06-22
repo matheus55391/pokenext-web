@@ -1,7 +1,8 @@
+'use client';
 import { useQuery } from '@tanstack/react-query';
 import Header from '@/components/Header';
 import SearchSection from '@/components/SearchSection';
-import { pokeapiService } from '@/Services/PokeapiService';
+import { pokeapiService } from '@/services/PokeapiService';
 import PokemonListSection from '@/components/PokemonListSection';
 
 const Home: React.FC = () => {
