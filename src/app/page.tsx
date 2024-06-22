@@ -1,7 +1,7 @@
 'use client';
 // import { useQuery } from '@tanstack/react-query';
 import Header from '@/components/Header';
-// import SearchSection from '@/components/SearchSection';
+import SearchSection from '@/components/SearchSection';
 // import { pokeapiService } from '@/services/PokeapiService';
 // import PokemonListSection from '@/components/PokemonListSection';
 
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     <main className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
-        {/* <SearchSection /> */}
+        <SearchSection />
         {/* <PokemonListSection pokemons={pokemons} isLoading={isLoading} error={!!error} /> */}
       </main>
     </main>
