@@ -7,7 +7,9 @@
 <h3 align="center">POKENEXT</h3>
 
   <p align="center">
-    Hoy 🤖, já faz um tempo que venho estudando NextJs e pensei em um projeto simples para estudar a geração de páginas estáticas geradas dinamicamente.
+    Bem-vindo à POKENEXT, sua Pokédex online para explorar e descobrir informações fascinantes sobre Pokémon de todas as regiões e gerações. Aqui, você pode mergulhar na vasta diversidade de criaturas incríveis, aprender sobre suas habilidades, tipos, evoluções e muito mais.
+      <br /><br />
+      Explore nossa Pokédex para encontrar seus Pokémon favoritos! Clique no link abaixo para começar:
     <br />
     <br />
     <a href="https://pokenext-brown-three.vercel.app/">Site</a>
@@ -15,4 +17,3 @@
     <a href="https://pokeapi.co/">PokeApi</a>
   </p>
 </div>
-
