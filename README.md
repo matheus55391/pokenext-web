@@ -12,7 +12,7 @@
       Explore nossa Pokédex para encontrar seus Pokémon favoritos! Clique no link abaixo para começar:
     <br />
     <br />
-    <a href="https://pokenext-opwsaas6x-matheus-felipe-vieira-santiagos-projects.vercel.app/">Site</a>
+    <a href="[https://pokenext-opwsaas6x-matheus-felipe-vieira-santiagos-projects.vercel.app/](https://pokenext-five-mu.vercel.app/)">Site</a>
     ·
     <a href="https://pokeapi.co/">PokeApi</a>
   </p>
